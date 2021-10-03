@@ -1,12 +1,8 @@
 import re
-import json
 from fastapi import FastAPI
 from typing import Optional
-from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
-from pydantic import BaseModel
 from urllib.parse import parse_qs
-from urllib.parse import urlparse
 from chatdownloader import get_chat
 
 

@@ -1,7 +1,6 @@
 from chat_downloader import ChatDownloader
 
 import re
-import json
 from collections import namedtuple
 
 
