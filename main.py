@@ -17,7 +17,7 @@ TWITCH_BASE_URL="https://www.twitch.tv/videos/{id}"
 @app.get("/youtube")
 def get_youtube_vod(url: str):
     parsed_query = parse_qs(url)
-    chat = get_chat(f"{YOUTUBE_BASE_URL}={parsed_query[YOUTUBE_BASE_URL]}")
+    chat = get_chat(f"{YOUTUBE_BASE_URL}={parsed_query[YOUTUBE_BASE_URL][0]}")
     return chat
 
 @app.get("/twitch")
