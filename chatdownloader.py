@@ -3,7 +3,6 @@ from chat_downloader import ChatDownloader
 import re
 from collections import namedtuple
 
-
 Badge = namedtuple('Badge', ['name', 'title'])
 SubBadgeInfo = namedtuple('SubBadge', ['num', 'timescale'])
 subscriber_duration_count = re.compile(r"([0-9][.]?[0-9]?[0-9]?-[Y|M])", re.IGNORECASE)
@@ -71,9 +70,7 @@ def duration_conversion(dur_str: str) -> int:
     
     
 def get_chat(url: str) -> list:
-    print(f"URL: {url}")
     vod_msg_metadata = load_metadata(url)
-    print(vod_msg_metadata[0]["message"])
     try:
         chat = parse(vod_msg_metadata)
         print("Finished getting the chat")
