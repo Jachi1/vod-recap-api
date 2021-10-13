@@ -35,7 +35,7 @@ def get_youtube_vod(url: str):
     if YOUTUBE_BASE_URL in parsed_query.keys():
         youtube = YoutubeVodDownloader()
         chat = youtube.get_chat(f"{YOUTUBE_BASE_URL}={parsed_query[YOUTUBE_BASE_URL][0]}")
-        return chat
+        return JSONResponse(content=chat)
     return {"err": "Failed to get id from url"}
 
 @app.get("/twitch")
