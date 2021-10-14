@@ -81,3 +81,15 @@ def emotes_by_usage(chat: list) -> dict:
                 else:
                     emote.update({e: 1})
     return emote
+
+
+def emote_timestamps(chat: list, *emotes: str) -> list:
+    emote = [[], []]
+    for message in chat:
+        if message["is_emote"]:
+            for x in message["emotes"]:
+                for e in emotes:
+                    if x == e:
+                        emote[0].append(x)
+                        emote[1].append(message["time_in_seconds"])
+    return emote
