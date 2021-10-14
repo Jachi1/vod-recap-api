@@ -8,7 +8,6 @@ from fastapi.responses import FileResponse
 from urllib.parse import parse_qs
 from chatdownloader import TwitchVodDownloader
 from chatdownloader import YoutubeVodDownloader
-from plotter import *
 
 
 app = FastAPI()
@@ -45,7 +44,6 @@ def get_twitch_vod(url: str):
     if id := TWITCH_ID.match(url):
         twitch = TwitchVodDownloader()
         chat = twitch.get_chat(TWITCH_BASE_URL.format(id=id.group(1)))
-        # return JSONResponse(content=chat)
-        return FileResponse(plotter(chat))
+        return JSONResponse(content=chat)
     return {"err": "Failed to get id from url"}
    
